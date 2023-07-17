@@ -104,8 +104,10 @@ export { SidebarLayout };
 
 By following these steps and utilizing the custom hooks, you can establish the broadcasting setup between your Laravel backend and React frontend, enabling real-time communication and event handling.
 
+# Package.json front:
 
-
+     "socket.io": "^4.7.1",
+     "socket.io-client": "^2.3.0",
 
 
 
