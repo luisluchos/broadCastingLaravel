@@ -18,6 +18,9 @@ php artisan queue:work
 
 5. In your frontend React code, create a `useBroadcast()` hook to handle the broadcasting setup. This hook will establish the connection with Socket.IO and Laravel Echo. Here's an example of how it can be implemented:
 
+
+If you customize the broadcast name using the broadcastAs method, you should make sure to register your listener with a leading . character. This will instruct Echo to not prepend the application's namespace to the event:
+
 ```javascript
 import React, { useEffect } from "react";
 import Echo from "laravel-echo";
@@ -64,6 +67,7 @@ export const useBroadcastMessageTest = () => {
 
   useEffect(() => {
     window.Echo.channel("message").listen(".message", messageEventCallback);
+    //If you customize the broadcast name using the broadcastAs method, you should make sure to register your listener with a leading . character. This will instruct Echo to not prepend the application's namespace to the event:
 
     // Clean up the event listener if necessary
     // return () => {
